@@ -1,0 +1,256 @@
+# ╔════════════════════════════════════════════════════════════╗
+# ║              UltimateRanks Configuration                   ║
+# ║                     Version 1.0.0                          ║
+# ╚════════════════════════════════════════════════════════════╝
+
+# Database configuration
+database:
+  # Database type: 'sqlite' or 'mysql'
+  type: sqlite
+  
+  # SQLite settings (used when type is 'sqlite')
+  sqlite:
+    # Database file will be created in plugins/UltimateRanks/data.db
+    file: data.db
+  
+  # MySQL settings (used when type is 'mysql')
+  mysql:
+    # Connection details
+    host: localhost
+    port: 3306
+    database: ultimateranks
+    username: root
+    password: ''
+    
+    # Connection pool settings
+    pool-size: 10
+    minimum-idle: 2
+    max-lifetime: 1800000 # 30 minutes in milliseconds
+    connection-timeout: 5000 # 5 seconds
+    idle-timeout: 600000 # 10 minutes
+    
+    # Additional JDBC parameters
+    parameters: ?useSSL=false&autoReconnect=true&characterEncoding=utf8
+
+# Tab List Settings
+tablist:
+  # Enable tab list formatting
+  enabled: true
+  
+  # Tab list format
+  # Available: {prefix}, {suffix}, {player}
+  format: '{prefix}{player}'
+  
+  # Sort by rank weight (higher weight = top of list)
+  sort-by-weight: true
+  
+  tablist:
+    header: <gradient:gold:yellow>§lMY SERVER</gradient>
+    footer: '<gray>Rank: %ultimateranks_rank_displayname%</gray>'
+
+# Name Tag Settings (above player heads)
+nametag:
+  # Enable name tag formatting
+  enabled: true
+  
+  # Name tag visibility
+  # Options: ALWAYS, HIDE_FOR_OTHER_TEAMS, HIDE_FOR_OWN_TEAM, NEVER
+  visibility: ALWAYS
+  
+  # Collision rule (can players push each other)
+  # Options: ALWAYS, PUSH_OTHER_TEAMS, PUSH_OWN_TEAM, NEVER
+  collision: ALWAYS
+  
+  # Allow friendly fire (players with same rank can hurt each other)
+  friendly-fire: true
+
+# GUI Settings
+gui:
+  # Menu title (supports MiniMessage format)
+  menu-title: <gradient:gold:yellow>My Ranks</gradient>
+  
+  # Items per page in rank menu
+  items-per-page: 28
+  
+  # Update interval for GUI refresh (in ticks, 20 ticks = 1 second)
+  # Set to 0 to disable auto-refresh
+  refresh-interval: 100
+  
+  # Border item for GUI decoration
+  border:
+    material: GRAY_STAINED_GLASS_PANE
+    name: <gray>
+  
+  # Navigation buttons
+  navigation:
+    previous-page:
+      material: ARROW
+      name: <yellow>← Previous Page</yellow>
+      slot: 48
+    
+    next-page:
+      material: ARROW
+      name: <yellow>Next Page →</yellow>
+      slot: 50
+    
+    close:
+      material: BARRIER
+      name: <red>Close Menu</red>
+      slot: 49
+
+# CHAT FORMATTING
+chat:
+  # Enable chat formatting with rank prefixes
+  enabled: true
+  
+  # Chat format for players WITH ranks
+  # Available placeholders:
+  #   {prefix}  - Rank prefix
+  #   {suffix}  - Rank suffix
+  #   {player}  - Player name
+  #   {message} - Player's message
+  format: '{prefix}{player}{suffix}: {message}'
+  
+  # Alternative formats (uncomment to use):
+  # format: '{prefix}{player}: {message}'              # Prefix only
+  # format: '{player}{suffix}: {message}'              # Suffix only
+  # format: '[{rank}] {player}: {message}'             # Show rank in brackets
+  # format: '{prefix}{player}{suffix} » {message}'     # Custom separator
+
+    # Chat format for players WITHOUT ranks (default)
+  default-format: '<gray>{player}: {message}'
+  
+  # Allow color codes in chat (&a, &c, etc.)
+  # Requires permission: ultimateranks.chat.color
+  allow-colors: true
+  
+  # Allow hex colors (&#RRGGBB)
+  # Requires permission: ultimateranks.chat.hex
+  allow-hex: true
+  
+  # Allow formatting codes (&l, &o, etc.)
+  # Requires permission: ultimateranks.chat.format
+  allow-formatting: true
+  
+  # Block certain words in chat (basic filter)
+  # Set to [] to disable
+  blocked-words: []
+  # Example: ['badword1', 'badword2']
+
+    # Minimum delay between messages (in seconds)
+  # Set to 0 to disable
+  # Bypass with: ultimateranks.chat.bypass-cooldown
+  message-cooldown: 0
+  
+  # Enable click-to-message on player names
+  clickable-names: true
+  
+  # Enable hover info on player names
+  hover-info: true
+  hover-text: <gray>Click to message {player}
+
+
+# CHAT EXAMPLES OUTPUT
+#
+# Format: '{prefix}{player}{suffix}: {message}'
+# Output: [VIP] Steve ★: Hello everyone!
+#
+# Format: '{prefix}{player}: {message}'
+# Output: [Admin] Alex: Server restarting soon
+#
+# Format: '{player}{suffix} » {message}'
+# Output: Bob ⚡ » Check out my build!
+
+# Rank expiration settings
+expiration:
+  # Enable automatic cleanup of expired ranks
+  auto-cleanup: true
+  
+  # Cleanup interval (in minutes)
+  cleanup-interval: 30
+  
+  # Notify players when their rank expires
+  notify-on-expiration: true
+  
+  # Notification message
+  expiration-message: <red>Your rank <yellow>{rank}</yellow> has expired!</red>
+  
+  # Warning before expiration (in hours)
+  # Set to 0 to disable warnings
+  warn-before-expiration: 24
+  
+  # Warning message
+  warning-message: <yellow>Your rank <gold>{rank}</gold> will expire in <red>{time}</red>!</yellow>
+
+# Permission system settings
+permissions:
+  # Permission handler mode
+  # Options:
+  #   - 'auto' - Automatically detect (uses LuckPerms if available, otherwise standalone)
+  #   - 'standalone' - Force standalone Bukkit permissions
+  #   - 'luckperms' - Force LuckPerms integration
+  mode: auto
+  
+  # Apply permissions on join
+  apply-on-join: true
+  
+  # Refresh permissions on rank change
+  refresh-on-change: true
+
+# Logging settings
+logging:
+  # Log level: INFO, WARNING, SEVERE, FINE
+  level: INFO
+  
+  # Log rank changes to console
+  log-rank-changes: true
+  
+  # Log database operations
+  log-database: false
+  
+  # Log permission updates
+  log-permissions: false
+
+# Performance settings
+performance:
+  # Cache player data in memory
+  enable-cache: true
+  
+  # Cache expiration time (in minutes)
+  # Players will be removed from cache after this time of inactivity
+  cache-expiration: 30
+  
+  # Use async operations for database queries
+  async-database: true
+  
+  # Batch size for bulk operations
+  batch-size: 100
+
+# Integration settings
+integrations:
+  # PlaceholderAPI
+  placeholderapi:
+    enabled: true
+  
+  # LuckPerms
+  luckperms:
+    # Sync UltimateRanks with LuckPerms groups
+    sync-groups: true
+    
+    # Create missing groups in LuckPerms
+    create-missing-groups: true
+
+# Advanced settings (don't modify unless you know what you're doing)
+advanced:
+  # Debug mode (enables verbose logging)
+  debug: false
+  
+  # Database schema version (managed automatically)
+  schema-version: 1
+  
+  # Enable metrics (bStats)
+  metrics: true
+  
+  # Check for updates on startup
+  update-checker: true
+
