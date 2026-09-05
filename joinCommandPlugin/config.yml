@@ -1,1 +1,6 @@
+# Commands to run when a player joins
+# You can use {player_name} to insert the player's real name
+join_commands:
+  - "say Welcome to ice PVP! The best PVP server!!! {player_name}!"
+  - "schedule execute %player% ~ ~ ~ tp 8 97 172 5s"
 
