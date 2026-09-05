@@ -1,0 +1,312 @@
+# ╔════════════════════════════════════════════════════════════╗
+# ║                    Rank Definitions                        ║
+# ║                                                            ║
+# ║  Define your server ranks here with permissions,           ║
+# ║  prefixes, and GUI icons.                                  ║
+# ║                                                            ║
+# ║  Format Supported: MiniMessage                             ║
+# ║  Color Codes: <color>, <gradient:color1:color2>            ║
+# ║  Formatting: <bold>, <italic>, <underline>                 ║
+# ╚════════════════════════════════════════════════════════════╝
+
+ranks:
+  # ═══════════════════════════════════════════════════════════
+  #                      DEFAULT RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  default:
+    # Rank weight (higher = more important, affects sorting)
+    weight: 1
+
+    # Display name shown in GUI and messages (MiniMessage format)
+    display_name: '<gray>Member</gray>'
+
+    # Chat prefix (MiniMessage format)
+    prefix: '<gray>[Member]</gray> '
+
+    # Chat suffix (MiniMessage format)
+    suffix: ''
+
+    # GUI icon material (valid Minecraft material name)
+    gui_icon: LEATHER_HELMET
+
+    # Custom model data for resource pack support (optional)
+    custom_model_data: 0
+
+    # Permissions granted by this rank
+    permissions:
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'essentials.list'
+      - 'ultimateranks.menu'
+
+  # ═══════════════════════════════════════════════════════════
+  #                       VIP RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  vip:
+    weight: 10
+    display_name: '<gold>VIP</gold>'
+    prefix: '<gradient:yellow:gold>[VIP]</gradient> '
+    suffix: ''
+    gui_icon: GOLD_INGOT
+    custom_model_data: 0
+    permissions:
+      # Inherit from default
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'essentials.list'
+      - 'ultimateranks.menu'
+      # VIP exclusive
+      - 'essentials.fly'
+      - 'essentials.heal'
+      - 'essentials.feed'
+      - 'ultimateranks.chat.color'
+      - 'essentials.hat'
+      - 'essentials.nick'
+
+  vipplus:
+    weight: 20
+    display_name: '<gradient:gold:yellow:gold>VIP+</gradient>'
+    prefix: '<gradient:yellow:gold>[VIP+]</gradient> '
+    suffix: ' <gold>✦</gold>'
+    gui_icon: DIAMOND
+    custom_model_data: 0
+    permissions:
+      # All VIP permissions
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'essentials.list'
+      - 'ultimateranks.menu'
+      - 'essentials.fly'
+      - 'essentials.heal'
+      - 'essentials.feed'
+      - 'ultimateranks.chat.color'
+      - 'essentials.hat'
+      - 'essentials.nick'
+      # VIP+ exclusive
+      - 'essentials.kit.vipplus'
+      - 'essentials.workbench'
+      - 'essentials.enderchest'
+      - 'essentials.repair'
+
+  # ═══════════════════════════════════════════════════════════
+  #                      PREMIUM RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  mvp:
+    weight: 30
+    display_name: '<gradient:aqua:blue>MVP</gradient>'
+    prefix: '<gradient:aqua:blue>[MVP]</gradient> '
+    suffix: ' <aqua>★</aqua>'
+    gui_icon: EMERALD
+    custom_model_data: 0
+    permissions:
+      # All previous permissions
+      - 'essentials.*'
+      - 'ultimateranks.menu'
+      - 'ultimateranks.chat.color'
+      # MVP exclusive
+      - 'worldedit.selection.*'
+      - 'worldedit.history.undo'
+      - 'worldedit.history.redo'
+      - 'worldedit.clipboard.*'
+      - 'essentials.kit.mvp'
+
+  mvpplus:
+    weight: 40
+    display_name: '<gradient:aqua:blue:aqua>MVP+</gradient>'
+    prefix: '<gradient:aqua:blue>[MVP+]</gradient> '
+    suffix: ' <blue>★★</blue>'
+    gui_icon: NETHER_STAR
+    custom_model_data: 0
+    permissions:
+      - 'essentials.*'
+      - 'ultimateranks.menu'
+      - 'ultimateranks.chat.color'
+      - 'worldedit.*'
+      - 'essentials.kit.mvpplus'
+      - 'essentials.god'
+      - 'essentials.speed'
+
+  # ═══════════════════════════════════════════════════════════
+  #                      STAFF RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  helper:
+    weight: 50
+    display_name: '<green>Helper</green>'
+    prefix: '<green>[Helper]</green> '
+    suffix: ''
+    gui_icon: LIME_DYE
+    custom_model_data: 0
+    permissions:
+      - 'essentials.*'
+      - 'ultimateranks.*'
+      - 'minecraft.command.kick'
+      - 'minecraft.command.mute'
+      - 'essentials.vanish'
+      - 'essentials.socialspy'
+
+  moderator:
+    weight: 60
+    display_name: '<dark_green>Moderator</dark_green>'
+    prefix: '<dark_green>[Mod]</dark_green> '
+    suffix: ''
+    gui_icon: SHIELD
+    custom_model_data: 0
+    permissions:
+      - 'essentials.*'
+      - 'ultimateranks.*'
+      - 'minecraft.command.*'
+      - 'worldedit.*'
+      - 'essentials.ban'
+      - 'essentials.tempban'
+      - 'essentials.unban'
+      - 'essentials.jail'
+
+  admin:
+    weight: 70
+    display_name: '<red>Admin</red>'
+    prefix: '<red>[Admin]</red> '
+    suffix: ''
+    gui_icon: REDSTONE
+    custom_model_data: 0
+    permissions:
+      - '*'
+
+  # ═══════════════════════════════════════════════════════════
+  #                    SPECIAL/EVENT RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  builder:
+    weight: 15
+    display_name: '<yellow>Builder</yellow>'
+    prefix: '<yellow>[Builder]</yellow> '
+    suffix: ' <gold>⚒</gold>'
+    gui_icon: BRICK
+    custom_model_data: 0
+    permissions:
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'ultimateranks.menu'
+      - 'worldedit.*'
+      - 'worldguard.region.*'
+      - 'essentials.gamemode'
+      - 'essentials.time'
+      - 'essentials.weather'
+
+  youtuber:
+    weight: 35
+    display_name: '<gradient:red:white:red>YouTuber</gradient>'
+    prefix: '<gradient:red:white>[YT]</gradient> '
+    suffix: ' <red>▶</red>'
+    gui_icon: REDSTONE_TORCH
+    custom_model_data: 0
+    permissions:
+      - 'essentials.*'
+      - 'ultimateranks.menu'
+      - 'ultimateranks.chat.color'
+      - 'essentials.fly'
+      - 'essentials.gamemode'
+
+  premium:
+    weight: 25
+    display_name: '<gradient:light_purple:pink>Premium</gradient>'
+    prefix: '<gradient:light_purple:pink>[Premium]</gradient> '
+    suffix: ' <light_purple>♦</light_purple>'
+    gui_icon: AMETHYST_SHARD
+    custom_model_data: 0
+    permissions:
+      - 'essentials.*'
+      - 'ultimateranks.menu'
+      - 'ultimateranks.chat.color'
+      - 'essentials.kit.premium'
+
+  # ═══════════════════════════════════════════════════════════
+  #                    SEASONAL/LIMITED RANKS
+  # ═══════════════════════════════════════════════════════════
+
+  christmas:
+    weight: 5
+    display_name: '<gradient:red:green>Christmas</gradient>'
+    prefix: '<gradient:red:green>[Xmas]</gradient> '
+    suffix: ' <red>❄</red>'
+    gui_icon: SNOWBALL
+    custom_model_data: 0
+    permissions:
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'ultimateranks.menu'
+      - 'essentials.kit.christmas'
+
+  halloween:
+    weight: 5
+    display_name: '<gradient:gold:dark_red>Halloween</gradient>'
+    prefix: '<gradient:gold:dark_red>[Halloween]</gradient> '
+    suffix: ' <gold>🎃</gold>'
+    gui_icon: JACK_O_LANTERN
+    custom_model_data: 0
+    permissions:
+      - 'essentials.spawn'
+      - 'essentials.help'
+      - 'ultimateranks.menu'
+      - 'essentials.kit.halloween'
+
+  # ═══════════════════════════════════════════════════════════
+  #                       OWNER RANK
+  # ═══════════════════════════════════════════════════════════
+
+  owner:
+    weight: 100
+    display_name: '<gradient:dark_red:red:dark_red>Owner</gradient>'
+    prefix: '<gradient:dark_red:red>[Owner]</gradient> '
+    suffix: ' <dark_red>♛</dark_red>'
+    gui_icon: BEACON
+    custom_model_data: 0
+    permissions:
+      - '*'
+  co-owner:
+    weight: 90
+    display_name: '<gradient:dark_red:red:dark_red>Co-owner</gradient>'
+    prefix: '<gradient:dark_red:red>[Owner]</gradient> '
+    suffix: ' <dark_red>♛</dark_red>'
+    gui_icon: BEACON
+    custom_model_data: 0
+    permissions:
+      - '*'
+
+# ═══════════════════════════════════════════════════════════
+#                         NOTES
+# ═══════════════════════════════════════════════════════════
+#
+# MiniMessage Format Examples:
+#   Colors: <red>, <blue>, <gold>, <aqua>, etc.
+#   Gradients: <gradient:color1:color2:color3>text</gradient>
+#   Bold: <bold>text</bold>
+#   Italic: <italic>text</italic>
+#   Underline: <underline>text</underline>
+#   Combined: <bold><gradient:gold:yellow>VIP</gradient></bold>
+#
+# GUI Icons:
+#   Use valid Minecraft material names (1.21+)
+#   Common: DIAMOND, EMERALD, GOLD_INGOT, IRON_INGOT
+#   Special: NETHER_STAR, BEACON, DRAGON_EGG
+#
+# Weight System:
+#   Higher weight = Higher priority
+#   Used for:
+#     - Sorting in GUI
+#     - Tab list order
+#     - Permission hierarchy
+#
+# Permissions:
+#   - Use wildcards: essentials.*
+#   - Negate permissions: -essentials.fly
+#   - Plugin-specific: plugin.permission.node
+#
+# Custom Model Data:
+#   Use for resource pack custom items
+#   Set to 0 to disable
+#
+# ═══════════════════════════════════════════════════════════
